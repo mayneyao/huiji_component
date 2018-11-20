@@ -69,16 +69,16 @@ class ItemCard extends React.Component {
 			}
 		} = this.props;
 		return (
-			<div>
+			<div style={{display: 'inline-block', maxWidth: '300px'}}>
 				<div onClick={this.handleClickOpen}>
 					<img
 						className={classes.media}
 						src={icon}
 						title={name}
 					/>
-					<p className={`${classes[rarity]} ${classes.name}`}>
+					<span className={`${classes[rarity]} ${classes.name}`}>
 						{name}
-					</p>
+					</span>
 				</div>
 				<Dialog
 					open={this.state.open}

@@ -1,6 +1,5 @@
 import React from 'react';
 import Dialog from '@material-ui/core/Dialog';
-import DialogContent from '@material-ui/core/DialogContent';
 import ItemCard from './ItemCard';
 
 class AlertDialog extends React.Component {
@@ -13,9 +12,9 @@ class AlertDialog extends React.Component {
 					aria-labelledby="alert-dialog-title"
 					aria-describedby="alert-dialog-description"
 				>
-					<DialogContent>
+					<div>
 						<ItemCard data={this.props.data}/>
-					</DialogContent>
+					</div>
 				</Dialog>
 			</div>
 		);
