@@ -3,12 +3,13 @@ import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 import Gw2Item from './components/ItemLine';
 import axios from 'axios';
+import {Base64} from 'js-base64';
 
 const apiBaseUrl = 'https://gw2.huijiwiki.com/api/rest_v1/namespace/data';
 
 let allItemDivWithData = document.querySelectorAll('div[data-item-data]');
 for (let item of allItemDivWithData) {
-		let itemData = JSON.parse(item.dataset.itemData);
+		let itemData = JSON.parse(Base64.decode(item.dataset.itemData));
 		ReactDOM.render(<Gw2Item data={itemData}/>, item);
 }
 

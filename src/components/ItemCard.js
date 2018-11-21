@@ -124,7 +124,7 @@ const restrictionsMap = {
 function MediaCard(props) {
 	const {
 		classes, data: {
-			id,icon, name, name_en, description, rarity, type, level, vendor_value, flags, game_types, restrictions
+			id, icon, name, name_en, description, rarity, type, level, vendor_value, flags, game_types, restrictions
 		}
 	} = props;
 	return (
@@ -152,19 +152,24 @@ function MediaCard(props) {
 				<div>
 					<span>出售价格:</span> <span><Coin val={vendor_value}/></span>
 				</div>
-				<div>
-					<span>标签:</span> <span>{flags.map(flag => <Chip label={flagsMap[flag]}
-					                                                className={classes.chip}/>)}</span>
-				</div>
-				<div>
-					<span>使用范围:</span><span>{game_types.map(gt => <Chip label={gameTypesMap[gt]}
-					                                                    className={classes.chip}/>)}</span>
-				</div>
-				<div>
-					<span>使用限制:</span><span>{restrictions.map(rst => <Chip label={restrictionsMap[rst]}
-					                                                       className={classes.chip}/>)}</span>
-				</div>
-
+				{
+					Boolean(flags) && <div>
+						<span>标签:</span> <span>{flags.map(flag => <Chip label={flagsMap[flag]}
+						                                                className={classes.chip}/>)}</span>
+					</div>
+				}
+				{
+					Boolean(game_types) && <div>
+						<span>使用范围:</span><span>{game_types.map(gt => <Chip label={gameTypesMap[gt]}
+						                                                    className={classes.chip}/>)}</span>
+					</div>
+				}
+				{
+					Boolean(restrictions) && <div>
+						<span>使用限制:</span><span>{restrictions.map(rst => <Chip label={restrictionsMap[rst]}
+						                                                       className={classes.chip}/>)}</span>
+					</div>
+				}
 
 			</CardContent>
 			<CardActions>
