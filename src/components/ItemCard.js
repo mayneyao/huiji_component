@@ -124,7 +124,7 @@ const restrictionsMap = {
 function MediaCard(props) {
 	const {
 		classes, data: {
-			icon, name, name_en, description, rarity, type, level, vendor_value, flags, game_types, restrictions
+			id,icon, name, name_en, description, rarity, type, level, vendor_value, flags, game_types, restrictions
 		}
 	} = props;
 	return (
@@ -169,10 +169,13 @@ function MediaCard(props) {
 			</CardContent>
 			<CardActions>
 				<Button size="small" color="primary">
-					Share
+					在中文维基中查看
 				</Button>
 				<Button size="small" color="primary">
-					Learn More
+					在英文维基上查看
+				</Button>
+				<Button size="small" color="primary" href={`http://www.gw2data.cn/itemdatabase/${id}`}>
+					在数据库中查看
 				</Button>
 			</CardActions>
 		</div>

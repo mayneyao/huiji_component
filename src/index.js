@@ -6,8 +6,13 @@ import axios from 'axios';
 
 const apiBaseUrl = 'https://gw2.huijiwiki.com/api/rest_v1/namespace/data';
 
-let all_item_div = document.querySelectorAll('div[data-item-id]');
+let allItemDivWithData = document.querySelectorAll('div[data-item-data]');
+for (let item of allItemDivWithData) {
+		let itemData = JSON.parse(item.dataset.itemData);
+		ReactDOM.render(<Gw2Item data={itemData}/>, item);
+}
 
+let all_item_div = document.querySelectorAll('div[data-item-id]');
 let all_item_id = [];
 
 for (let item of all_item_div) {
