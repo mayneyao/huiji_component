@@ -6,7 +6,7 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
 import Chip from '@material-ui/core/Chip';
-import Coin from './Coin';
+import Coin from '../Coin/Coin';
 
 const styles = theme => ({
 	chip: {
