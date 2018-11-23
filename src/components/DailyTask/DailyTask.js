@@ -98,7 +98,6 @@ const styles = theme => ({
 	},
 	list: {
 		width: '100%',
-		maxWidth: 400,
 	},
 });
 
