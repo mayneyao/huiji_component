@@ -35,7 +35,7 @@ function DailyList(props) {
 		<div className={classes.list}>
 			<List>
 				{
-					list.map(item => (<ListItem key={item.id}>
+					list.map(item => (<ListItem key={item.id} style={{paddingLeft: 5}}>
 						<Avatar src={iconMap[type]} alt={type}/>
 						<ListItemText primary={item.zh} secondary={item.detail}/>
 					</ListItem>))
@@ -49,7 +49,7 @@ function DailyList(props) {
 
 function TabContainer(props) {
 	return (
-		<Typography component="div" style={{padding: 8 * 3}}>
+		<Typography component="div" style={{padding: 8 * 2, paddingLeft: 0, paddingTop: 8}}>
 			{props.children}
 		</Typography>
 	);
@@ -63,6 +63,7 @@ const styles = theme => ({
 	root: {
 		// maxWidth: 500,
 		flexGrow: 1,
+		// backgroundColor: '#000',
 		color: '#ddd'
 	},
 	tabRoot: {
