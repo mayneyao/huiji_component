@@ -63,7 +63,6 @@ const styles = theme => ({
 	root: {
 		// maxWidth: 500,
 		flexGrow: 1,
-		backgroundColor: '#0f1425',
 		color: '#ddd'
 	},
 	tabRoot: {
