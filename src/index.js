@@ -5,8 +5,17 @@ import Gw2Item from './components/Item/ItemLine';
 import Gw2Skill from './components/Skill/SkillLine';
 import axios from 'axios';
 import {Base64} from 'js-base64';
+import DailyTask from './components/DailyTask/DailyTask';
 
 const apiBaseUrl = 'https://gw2.huijiwiki.com/api/rest_v1/namespace/data';
+
+
+
+const dailyDiv = document.getElementById('gw2-daily');
+
+if (dailyDiv){
+	ReactDOM.render(<DailyTask/>, dailyDiv);
+}
 
 let allItemDivWithData = document.querySelectorAll('div[data-item-data]');
 for (let item of allItemDivWithData) {
