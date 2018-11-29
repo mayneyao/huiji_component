@@ -3,30 +3,33 @@ import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 import Gw2Item from './components/Item/ItemLine';
 import Gw2Skill from './components/Skill/SkillLine';
-import axios from 'axios';
 import {Base64} from 'js-base64';
 import DailyTask from './components/DailyTask/DailyTask';
+import Markdown from './components/Markdown/Markdown';
 
 const apiBaseUrl = 'https://gw2.huijiwiki.com/api/rest_v1/namespace/data';
 
 
-
 const dailyDiv = document.getElementById('gw2-daily');
-
-if (dailyDiv){
+if (dailyDiv) {
 	ReactDOM.render(<DailyTask/>, dailyDiv);
+}
+
+let allMdDiv = document.querySelectorAll('div#gw2-md');
+for (let item of allMdDiv) {
+	ReactDOM.render(<Markdown>{item.textContent}</Markdown>, item);
 }
 
 let allItemDivWithData = document.querySelectorAll('div[data-item-data]');
 for (let item of allItemDivWithData) {
-		let itemData = JSON.parse(Base64.decode(item.dataset.itemData));
-		ReactDOM.render(<Gw2Item data={itemData}/>, item);
+	let itemData = JSON.parse(Base64.decode(item.dataset.itemData));
+	ReactDOM.render(<Gw2Item data={itemData}/>, item);
 }
 
 let allSkillDivWithData = document.querySelectorAll('div[data-skill-data]');
 for (let skill of allSkillDivWithData) {
-		let skillData = JSON.parse(Base64.decode(skill.dataset.skillData));
-		ReactDOM.render(<Gw2Skill data={skillData}/>, skill);
+	let skillData = JSON.parse(Base64.decode(skill.dataset.skillData));
+	ReactDOM.render(<Gw2Skill data={skillData}/>, skill);
 }
 
 // let all_item_div = document.querySelectorAll('div[data-item-id]');
